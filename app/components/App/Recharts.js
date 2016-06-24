@@ -1,5 +1,5 @@
-import React from 'react'
-import {BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'Recharts'
+import React, { Component } from 'react'
+import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'Recharts'
 
 const data = [
       {name: 'Run A', positive: 60, negative: -40},
@@ -14,28 +14,31 @@ const data = [
       {name: 'Run J', positive: 80, negative: -20},
 ];
 
-const barWidth = 36;
+const barWidth = 60;
 
-const Recharts = () => (
-  <div>
-    <h2>Recharts</h2>
-    <BarChart
-      width={800}
-      height={300}
-      data={data}
-      margin={{top: 20, right: 10, left: 10, bottom: 5}}
-      barGap={-barWidth}
-      barSize={barWidth}
-    >
-      <XAxis tick={false} tickLine={false} />
-      <YAxis type="number" domain={[-100, 100]} tickFormatter={(value) => `${value}%`} />
-      <CartesianGrid vertical={false}/>
-      <ReferenceLine y={0} stroke='#000'/>
-      <Bar dataKey="positive" fill="#c0c0c0" isAnimationActive={false} />
-      <Bar dataKey="negative" fill="#bf2828" isAnimationActive={false} />
-    </BarChart>
-  </div>
-
-)
+class Recharts extends Component {
+  render(){
+    return (
+      <div>
+        <h2>Recharts</h2>
+        <BarChart
+          width={800}
+          height={400}
+          data={data}
+          margin={{top: 10, right: 10, left: 10, bottom: 5}}
+          barGap={-barWidth}
+          barSize={barWidth}
+        >
+          <XAxis tick={false} tickLine={false} />
+          <YAxis type="number" domain={[-100, 100]} tickFormatter={(value) => `${value}%`} />
+          <CartesianGrid vertical={false}/>
+          <ReferenceLine y={0} stroke='#000'/>
+          <Bar dataKey="positive" fill="rgba(0, 0, 0, 0.3)" isAnimationActive={false} />
+          <Bar dataKey="negative" fill="rgba(200, 20, 20, 0.5)" isAnimationActive={false} />
+        </BarChart>
+      </div>
+    );
+  }
+}
 
 export default Recharts
