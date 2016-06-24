@@ -1,9 +1,9 @@
 import React from 'react'
-import Rechart from '../Rechart'
+import Recharts from './Recharts'
 
 const App = () => (
   <div>
-    <Rechart />
+    <Recharts />
   </div>
 )
 
